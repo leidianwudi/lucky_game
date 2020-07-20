@@ -261,7 +261,7 @@ import config from "@/static/config/config.js"
 		width:750rpx;
 		height:750rpx;
 		position:absolute;
-		bottom:200rpx;
+		top:450rpx;
 	}
 	.rotate{
 		width:750rpx;
