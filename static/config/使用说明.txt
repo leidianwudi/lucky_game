@@ -1,0 +1,3 @@
+static/config目录下文件为配置文件
+1、config.js 文件里面baseUrl值是转盘点击跳转的外部连接，可以自己替换（注意url要包括http的完整路径）
+2、active.jpg 为广告图片，可以自己替换

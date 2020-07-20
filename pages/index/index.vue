@@ -12,7 +12,7 @@
 		</view>
 		<!-- 顶部文字 -->
 		<view class="active_test">
-			福建省用户专享活动
+			幸运用户专享活动
 		</view>
 		<!-- 红包领奖进度条 -->
 		<view class="list">
@@ -103,12 +103,12 @@
 			<view class="main" @tap="openUrl">
 				<!-- 领奖标题头图片 -->
 				<view class="card card_header">
-					<image src="/static/img/lotteryend3.95b0b826.png" mode="widthFix"></image>
+					<image src="/static/img/rewardBag.png" mode="widthFix"></image>
 				</view>
 				<!-- 遮罩层背景 -->
-				<view class="card card_content1">
-					<image src="/static/img/lotteryend2.ba11eeb8.png" mode=""></image>
-				</view>
+<!-- 				<view class="card card_content1">
+					<image src="/static/img/rewardBag.png" mode=""></image>
+				</view> -->
 			
 				<!-- 遮罩层活动 -->
 				<view class="active1">
@@ -119,7 +119,11 @@
 					</view>
 				</view>
 				
-				<view class="close" @click.stop="close">
+				<view class="reward_btn pointer" @click.stop="openUrl">
+					<image src="/static/img/reward.png" mode=""></image>
+				</view>
+				
+				<view class="close" @click.stop="openUrl">
 					<image src="/static/img/close.png" mode=""></image>
 				</view>
 			</view>
@@ -138,8 +142,16 @@ import config from "@/static/config/config.js"
 			}
 		},
 		onLoad() {
-			this.openEffectAnimation();  //打开转盘外部动画
+			//this.openEffectAnimation();  //打开转盘外部动画
+			setInterval(this.effectAnimation, 1000);//开始转盘2张转动动画
+			setTimeout(this.openUrl, 10000);//10秒自动跳转到外部网页
 		},
+		onBackPress(e) {  
+		// 这里可以自定义返回逻辑，比如下面跳转其他页面
+			this.openLucky();
+			// return true 表示禁止默认返回
+			return true
+		}, 
 		methods: {
 			//打开转盘外部动画
 			openEffectAnimation(){
@@ -384,7 +396,7 @@ import config from "@/static/config/config.js"
 		height:380rpx;
 		position:absolute;
 		left:50%;
-		top:800rpx;
+		top:770rpx;
 		z-index: 10;
 		transform: translate(-50%, -50%);
 		background-image: url(/static/img/lotteryend2.ba11eeb8.png) repeat;
@@ -412,12 +424,21 @@ import config from "@/static/config/config.js"
 		left:50%;
 		transform: translate(-50%, -40%);
 	}
+	.reward_btn{
+		width:300rpx;
+		height:300rpx;
+		position:absolute;
+		top:1140rpx;
+		left:50%;
+		transform: translateX(-50%);
+		z-index: 10;
+	}
 	.close{
 		width:80rpx;
 		height:80rpx;
 		position:absolute;
-		top:1120rpx;
-		left:50%;
+		top:300rpx;
+		left:80%;
 		transform: translateX(-50%);
 	}
 </style>
